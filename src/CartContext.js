@@ -9,8 +9,12 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => [...prevCart, item]);
   };
 
+  const clearCart = () => {
+    setCart([]); // Reset the cart to an empty array
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );

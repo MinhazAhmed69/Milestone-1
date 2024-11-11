@@ -15,7 +15,7 @@ function HomePage() {
 
   return (
     <div className="homepage-container">
-      <h1 className="homepage-heading">Welcome to Our Cafe</h1>
+      <h1 className="homepage-heading">Welcome to Maple & Oak</h1>
       <p className="homepage-subtitle">A Taste You’ll Remember</p>
       <div className="pattern-background"></div>
     </div>

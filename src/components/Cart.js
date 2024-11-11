@@ -2,15 +2,16 @@ import React, { useContext } from 'react';
 import { CartContext } from '../CartContext';
 
 const Cart = () => {
-  const { cart, setCart } = useContext(CartContext);
-
-  // Clear the cart by setting it to an empty array
-  const clearCart = () => {
-    setCart([]); // Reset the cart to an empty array
-  };
+  const { cart, clearCart } = useContext(CartContext); // Access clearCart here
 
   // Calculate total price
   const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+  // Handle checkout logic
+  const handleCheckout = () => {
+    alert('Your order has been successfully placed!');  // Alert on successful order
+    clearCart();  // Clear the cart automatically after placing the order
+  };
 
   return (
     <div className="cart">
@@ -19,14 +20,14 @@ const Cart = () => {
         {cart.map((item, index) => (
           <li key={index}>
             <span>{item.name}</span>
-            <span>${item.price.toFixed(2)}</span>
+            <span>₹{item.price.toFixed(2)}</span>
           </li>
         ))}
       </ul>
       <div className="cart-total">
-        Total: ${total.toFixed(2)}
+        Total: ₹{total.toFixed(2)}
       </div>
-      <button className="checkout-button">Proceed to Checkout</button>
+      <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
       <button className="clear-cart-button" onClick={clearCart}>Clear Cart</button>
     </div>
   );

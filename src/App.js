@@ -10,7 +10,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import { CartProvider } from './CartContext';
 
-
 const App = () => (
   <CartProvider>
     <Router>
